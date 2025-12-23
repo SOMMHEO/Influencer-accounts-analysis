@@ -4,15 +4,28 @@ from datetime import datetime, timedelta
 from sklearn.preprocessing import MinMaxScaler
 
 
+# def influencer_scale_type(row):
+#     count = row['follower_cnt']
+#     if count < 1000:
+#         return 'nano'
+#     elif 1000 <= count <= 10000:
+#         return 'micro'
+#     elif 10000 < count <= 100000:
+#         return 'mid'
+#     elif 100000 < count <= 500000:
+#         return 'macro'
+#     else:
+#         return 'mega'
+
 def influencer_scale_type(row):
     count = row['follower_cnt']
-    if count < 1000:
+    if count < 10000:
         return 'nano'
-    elif 1000 <= count <= 10000:
+    elif 10000 <= count <= 50000:
         return 'micro'
-    elif 10000 < count <= 100000:
+    elif 50000 < count <= 500000:
         return 'mid'
-    elif 100000 < count <= 500000:
+    elif 500000 < count <= 1000000:
         return 'macro'
     else:
         return 'mega'
